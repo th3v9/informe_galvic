@@ -1,16 +1,52 @@
-# React + Vite
+# Informe U02 - Analisis legal de ciberseguridad
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto para la Evaluacion Sumativa N.2 de TI3034.
 
-Currently, two official plugins are available:
+## Caso trabajado
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Brecha de datos Equifax (2017)
 
-## React Compiler
+## Estructura del proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `docs_galvic/`: contenido del informe en 8 archivos Markdown.
+- `src/components/`: componentes React que renderizan cada archivo `.md`.
+- `src/App.jsx`: estructura principal del sitio y navegacion por secciones.
 
-## Expanding the ESLint configuration
+## Archivos de contenido
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. `01_resumen_galvic.md`
+2. `02_marco_galvic.md`
+3. `03_delitos_galvic.md`
+4. `04_comparacion_galvic.md`
+5. `05_responsabilidades_galvic.md`
+6. `06_datos_galvic.md`
+7. `07_conclusiones_galvic.md`
+8. `08_prompts_galvic.md`
+
+## Ejecutar en local
+
+```bash
+npm install
+npm run dev
+```
+
+## Build de produccion
+
+```bash
+npm run build
+npm run preview
+```
+
+## Criterios cubiertos en el contenido
+
+- Marco normativo nacional e internacional.
+- Tipificacion de delitos informaticos (Ley 21.459).
+- Comparacion de marcos regulatorios.
+- Responsabilidades legales de actores.
+- Tratamiento de datos personales y derechos ARCO (Ley 19.628).
+- Bitacora de uso de IA.
+
+## Entrega
+
+- URL de repositorio GitHub publico.
+- URL de despliegue en Vercel.
