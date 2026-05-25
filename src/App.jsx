@@ -63,31 +63,61 @@ const contactLinks = [
 
 function getInitialTheme() {
   if (typeof window === 'undefined') {
-    return 'light'
+    return 'auto'
   }
 
-  const savedTheme = window.localStorage.getItem('galvic-theme')
-  if (savedTheme === 'dark' || savedTheme === 'light') {
+  const savedTheme = window.localStorage.getItem('galvic-theme-mode')
+  if (savedTheme === 'dark' || savedTheme === 'light' || savedTheme === 'auto') {
     return savedTheme
   }
 
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  return 'auto'
 }
 
 function App() {
-  const [theme, setTheme] = useState(getInitialTheme)
+  const [themeMode, setThemeMode] = useState(getInitialTheme)
+  const [prefersDark, setPrefersDark] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+  })
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const handleChange = (event) => setPrefersDark(event.matches)
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleChange)
+      return () => mediaQuery.removeEventListener('change', handleChange)
+    }
+
+    mediaQuery.addListener(handleChange)
+    return () => mediaQuery.removeListener(handleChange)
+  }, [])
+
+  const effectiveTheme = themeMode === 'auto' ? (prefersDark ? 'dark' : 'light') : themeMode
 
   useEffect(() => {
     const root = document.documentElement
-    root.dataset.theme = theme
-    root.style.colorScheme = theme
-    window.localStorage.setItem('galvic-theme', theme)
-  }, [theme])
+    root.dataset.theme = effectiveTheme
+    root.style.colorScheme = effectiveTheme
+    window.localStorage.setItem('galvic-theme-mode', themeMode)
+  }, [effectiveTheme, themeMode])
 
-  const isDark = theme === 'dark'
+  const themeOptions = [
+    { value: 'light', label: 'Claro' },
+    { value: 'dark', label: 'Oscuro' },
+    { value: 'auto', label: 'Auto' },
+  ]
 
-  const toggleTheme = () => {
-    setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'))
+  const setTheme = (nextTheme) => {
+    setThemeMode(nextTheme)
   }
 
   return (
@@ -109,9 +139,19 @@ function App() {
             <a className="hero-action-button" href="https://github.com/th3v9" target="_blank" rel="noreferrer">
               Ver mi GitHub
             </a>
-            <button type="button" className="theme-toggle-button" onClick={toggleTheme} aria-pressed={isDark}>
-              {isDark ? 'Modo claro' : 'Modo oscuro'}
-            </button>
+            <div className="theme-switcher" role="group" aria-label="Selector de modo oscuro">
+              {themeOptions.map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  className={`theme-switch-button${themeMode === option.value ? ' is-active' : ''}`}
+                  onClick={() => setTheme(option.value)}
+                  aria-pressed={themeMode === option.value}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="hero-badges" aria-label="Aspectos destacados">
