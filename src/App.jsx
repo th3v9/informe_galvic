@@ -42,6 +42,24 @@ const editorialNotes = [
 
 const accentBars = ['Normativa', 'Responsabilidad', 'Datos', 'Delitos']
 
+const contactLinks = [
+  {
+    label: 'Perfil de GitHub',
+    href: 'https://github.com/th3v9',
+    description: 'Contacto y repositorios del autor.',
+  },
+  {
+    label: 'Repositorio del proyecto',
+    href: 'https://github.com/th3v9/informe_galvic',
+    description: 'Codigo fuente y workflow de despliegue.',
+  },
+  {
+    label: 'Sitio publicado',
+    href: 'https://th3v9.github.io/informe_galvic/',
+    description: 'Version en linea del informe.',
+  },
+]
+
 function App() {
   return (
     <div className="layout">
@@ -118,6 +136,26 @@ function App() {
         <Conclusiones />
         <Prompts />
       </main>
+
+      <footer className="footer-panel" aria-label="Enlaces de contacto de GitHub">
+        <div className="footer-copy">
+          <p className="footer-kicker">Contacto y referencia</p>
+          <h2>GitHub del proyecto</h2>
+          <p>
+            Si quieres revisar el codigo, ver el despliegue o dejar seguimiento del informe, estos son los enlaces
+            principales del proyecto.
+          </p>
+        </div>
+
+        <div className="footer-links">
+          {contactLinks.map((link) => (
+            <a key={link.href} className="footer-link-card" href={link.href} target="_blank" rel="noreferrer">
+              <span className="footer-link-label">{link.label}</span>
+              <span className="footer-link-desc">{link.description}</span>
+            </a>
+          ))}
+        </div>
+      </footer>
     </div>
   )
 }
