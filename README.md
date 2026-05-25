@@ -37,6 +37,17 @@ npm run build
 npm run preview
 ```
 
+## Despliegue en GitHub Pages
+
+El proyecto ya incluye un workflow para publicar automaticamente en GitHub Pages al hacer push en `main`.
+
+1. En GitHub, abre `Settings` > `Pages`.
+2. En `Build and deployment`, selecciona `GitHub Actions`.
+3. Sube estos cambios a la rama `main`.
+4. Revisa la pestaña `Actions` hasta que termine el despliegue.
+
+El sitio se publica desde la carpeta `dist` generada por `npm run build`.
+
 ## Criterios cubiertos en el contenido
 
 - Marco normativo nacional e internacional.
@@ -50,3 +61,4 @@ npm run preview
 
 - URL de repositorio GitHub publico.
 - URL de despliegue en Vercel.
+- URL de despliegue en GitHub Pages.
