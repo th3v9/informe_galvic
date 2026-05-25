@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Resumen from './components/Resumen'
 import Marco from './components/Marco'
 import Delitos from './components/Delitos'
@@ -60,7 +61,35 @@ const contactLinks = [
   },
 ]
 
+function getInitialTheme() {
+  if (typeof window === 'undefined') {
+    return 'light'
+  }
+
+  const savedTheme = window.localStorage.getItem('galvic-theme')
+  if (savedTheme === 'dark' || savedTheme === 'light') {
+    return savedTheme
+  }
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
 function App() {
+  const [theme, setTheme] = useState(getInitialTheme)
+
+  useEffect(() => {
+    const root = document.documentElement
+    root.dataset.theme = theme
+    root.style.colorScheme = theme
+    window.localStorage.setItem('galvic-theme', theme)
+  }, [theme])
+
+  const isDark = theme === 'dark'
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'))
+  }
+
   return (
     <div className="layout">
       <header className="hero-panel">
@@ -80,6 +109,9 @@ function App() {
             <a className="hero-action-button" href="https://github.com/th3v9" target="_blank" rel="noreferrer">
               Ver mi GitHub
             </a>
+            <button type="button" className="theme-toggle-button" onClick={toggleTheme} aria-pressed={isDark}>
+              {isDark ? 'Modo claro' : 'Modo oscuro'}
+            </button>
           </div>
 
           <div className="hero-badges" aria-label="Aspectos destacados">
