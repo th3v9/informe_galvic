@@ -76,6 +76,12 @@ function App() {
             <strong>galvic</strong>
           </p>
 
+          <div className="hero-actions">
+            <a className="hero-action-button" href="https://github.com/th3v9" target="_blank" rel="noreferrer">
+              Ver mi GitHub
+            </a>
+          </div>
+
           <div className="hero-badges" aria-label="Aspectos destacados">
             {accentBars.map((item) => (
               <span key={item} className="hero-badge">
@@ -142,8 +148,7 @@ function App() {
           <p className="footer-kicker">Contacto y referencia</p>
           <h2>GitHub del proyecto</h2>
           <p>
-            Si quieres revisar el codigo, ver el despliegue o dejar seguimiento del informe, estos son los enlaces
-            principales del proyecto.
+            Repositorio, perfil y publicacion oficial del informe.
           </p>
         </div>
 
