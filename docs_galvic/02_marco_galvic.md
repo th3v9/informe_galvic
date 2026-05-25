@@ -30,23 +30,23 @@ Se identifican y justifican normas aplicables al caso Equifax bajo un escenario 
 
 ## 5) CCPA/CPRA (California, EE. UU.)
 
-**Aplicabilidad:** Por la naturaleza del negocio de datos de consumidores, normas estatales de privacidad en EE. UU. son relevantes para evaluar transparencia y derechos del titular.
+*Aplicabilidad:* Por la naturaleza del negocio de datos de consumidores, normas estatales de privacidad en EE. UU. son relevantes para evaluar transparencia y derechos del titular.
 
-**Uso en el caso:** Aporta comparacion sobre acceso, supresion y deberes de informacion, util para el analisis de brechas de cumplimiento.
+*Uso en el caso:* Aporta comparacion sobre acceso, supresion y deberes de informacion, util para el analisis de brechas de cumplimiento.
 
-## 6) FTC Act Section 5 (EE. UU.)
+# 6) FTC Act Section 5 (EE. UU.)
 
-**Aplicabilidad:** La Federal Trade Commission puede sancionar practicas desleales o enganosas en seguridad y privacidad.
+*Aplicabilidad:* La Federal Trade Commission puede sancionar practicas desleales o enganosas en seguridad y privacidad.
 
-**Uso en el caso:** Explica el riesgo regulatorio por controles insuficientes, declaraciones corporativas inexactas o practicas de seguridad no razonables.
+*Uso en el caso:* Explica el riesgo regulatorio por controles insuficientes, declaraciones corporativas inexactas o practicas de seguridad no razonables.
 
-## 7) Estandares ISO/IEC 27001 y 27002 (referenciales tecnicos)
+# 7) Estandares ISO/IEC 27001 y 27002 (referenciales tecnicos)
 
-**Aplicabilidad:** No son ley penal, pero son marco de control organizacional comun para seguridad de la informacion.
+*Aplicabilidad:* No son ley penal, pero son marco de control organizacional comun para seguridad de la informacion.
 
-**Uso en el caso:** Permiten objetivar diligencia esperada: gestion de activos, parches, accesos, monitoreo, continuidad y mejora continua.
+*Uso en el caso:* Permiten objetivar diligencia esperada: gestion de activos, parches, accesos, monitoreo, continuidad y mejora continua.
 
-## Justificacion integrada del marco
+# Justificacion integrada del marco
 
 Para un caso como Equifax, ninguna norma por si sola cubre toda la complejidad:
 
@@ -55,7 +55,7 @@ Para un caso como Equifax, ninguna norma por si sola cubre toda la complejidad:
 - Convenio de Budapest y marcos internacionales abordan coordinacion y estandares de respuesta.
 - Referencias comparadas (GDPR/CCPA/FTC) permiten evaluar exigencia de diligencia y accountability en organizaciones de alto impacto.
 
-## Conclusiones de marco normativo
+# Conclusiones de marco normativo
 
 1. El analisis debe ser mixto: penal + datos personales + cooperacion internacional.
 2. La aplicacion chilena exige traducir hechos tecnicos del caso a categorias de Ley 21.459 y Ley 19.628.
